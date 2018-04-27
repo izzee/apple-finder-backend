@@ -11,7 +11,7 @@ require 'json'
 folders = Folder.create([{name: 'Documents'}, {name: 'Pictures'}, {name: 'Music'}])
 
 def createDocs(folder)
-  (1...20).each do |i|
+  (1...rand(5..30)).each do |i|
     doc = Document.create(name: folder.name + i.to_s, folder: folder)
     puts doc
   end
