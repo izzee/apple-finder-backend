@@ -18,10 +18,20 @@ class Api::V1::DocumentsController < ApplicationController
     end
   end
 
+  def update
+    @document = Document.find(params[:id])
+    @document.update(document_params)
+    if @document.save
+      render json: @document
+    else
+      render json: {errors: @document.errors.full_messages}, status: 422
+    end
+  end
+
 
   private
   def document_params
-    params.require(:document).permit(:name, :folderId)
+    params.require(:document).permit(:name, :folderId, :image)
   end
 
 end
