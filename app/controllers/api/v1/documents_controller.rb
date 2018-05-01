@@ -31,7 +31,7 @@ class Api::V1::DocumentsController < ApplicationController
 
   private
   def document_params
-    params.require(:document).permit(:name, :folderId, :image)
+    params.require(:document).permit(:name, :file_url, :filetype, :size, :folder_id)
   end
 
 end
